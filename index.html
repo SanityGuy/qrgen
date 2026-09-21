@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="A website that generates QR Codes.">
+    <meta name="keywords" content="QR Code Generator, QR Code, Generator, JavaScript, HTML, CSS">
+    <meta name="author" content="Souyan">
+    <meta name="theme-color" content="#0f172a">
+    <title>QR Code Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" />
+    <style>
+        button, input { touch-action: manipulation; }
+    </style>
+</head>
+<body class="translate-yes" translate="yes">
+    <main class="flex flex-col items-center justify-center min-h-screen bg-slate-900 px-4 py-8">
+        <div class="flex flex-col items-center justify-center w-full max-w-md">
+            <h1 class="text-2xl sm:text-3xl font-bold text-center text-white">QR Code Generator</h1>
+            <div class="flex flex-col items-center justify-center mt-5 w-full">
+                <div class="flex flex-col items-center justify-center w-full">
+                    <p class="text-white text-center text-sm leading-relaxed">
+                        Enter the text or link you want to generate a QR code for.<br>
+                        <span class="text-slate-400">Example: https://www.google.com</span>
+                    </p>
+
+                    <input
+                        type="text"
+                        id="text"
+                        required
+                        autocomplete="off"
+                        placeholder="Enter text or URL"
+                        class="w-full mt-4 p-3 text-base text-slate-800 font-medium bg-white border-2 border-slate-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                </div>
+                <div class="flex flex-col items-center justify-center w-full mt-3">
+                    <button
+                        id="generate"
+                        type="button"
+                        class="w-full min-h-[44px] mt-2 p-3 text-white font-medium bg-blue-600 hover:bg-blue-700 rounded-md shadow-sm hover:shadow-lg active:scale-95 transition duration-200"
+                    >
+                        <i class="fa-solid fa-qrcode mr-1"></i>
+                        Generate
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <section id="qrsection" class="hidden w-full max-w-md mt-10" aria-live="polite">
+            <div class="overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-slate-200">
+                <div class="flex items-center justify-center bg-slate-50 p-6">
+                    <img id="qrCode" class="w-full max-w-[220px] rounded-xl" alt="Generated QR code">
+                </div>
+                <div class="p-6">
+                    <h2 id="qrTitle" class="text-xl font-bold text-slate-900">Your QR Code</h2>
+                    <p id="qrDescription" class="mt-2 break-words text-sm leading-6 text-slate-500">
+                        The QR code is generated from the text you entered.
+                        <br>
+                        You can copy the text or download the QR code.
+                    </p>
+                    <div class="mt-5 grid grid-cols-2 gap-3">
+                        <button id="copyUrl" type="button" class="min-h-[44px] rounded-md border border-slate-300 bg-white p-3 font-medium text-slate-700 shadow-sm transition hover:bg-slate-50 hover:shadow-md active:scale-95">
+                            <i class="fa-solid fa-copy mr-1"></i>
+                            Copy Text
+                        </button>
+                        <button id="downloadQr" type="button" class="min-h-[44px] rounded-md bg-blue-600 p-3 font-medium text-white shadow-sm transition hover:bg-blue-700 hover:shadow-md active:scale-95">
+                            <i class="fa-solid fa-download mr-1"></i>
+                            Download
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>   
