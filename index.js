@@ -6,11 +6,11 @@ const downloadQr = document.getElementById("downloadQr");
 const qrCode = document.getElementById("qrCode");
 const textValue = document.getElementById("textValue");
 
-if (input && textValue) {
-    input.addEventListener("input", () => {
-        textValue.textContent = input.value;
-    });
-}
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        generate.click();
+    }
+});
 
 if (generate) {
     generate.addEventListener("click", () => {
@@ -18,6 +18,7 @@ if (generate) {
         if (!value) return;
 
         qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(value)}`;
+        textValue.innerHTML = value;
         qrsection.classList.remove("hidden");
         qrsection.classList.remove("animate-fade-in");
         void qrsection.offsetWidth;
