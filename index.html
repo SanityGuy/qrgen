@@ -30,7 +30,7 @@
     <main class="w-full max-w-md px-4 py-8 my-auto flex flex-col items-center relative z-10">
         <header class="text-center w-full">
             <div class="inline-flex items-center justify-center p-3 mb-3 bg-blue-500/10 border border-blue-500/20 rounded-2xl">
-                <i class="fa-solid fa-qrcode text-3xl text-blue-400"></i>
+                <i class="fa-solid fa-qrcode text-4xl text-blue-400"></i>
             </div>
             <h1 class="text-2xl sm:text-3xl font-bold text-center text-white">Make A QR Code</h1>
             <p class="mt-1 break-words text-sm leading-6 text-slate-400 font-medium">
@@ -40,7 +40,7 @@
 
         <div class="flex flex-col items-center justify-center mt-6 w-full bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-2xl p-5 shadow-2xl">
             <p class="text-slate-300 text-center text-sm leading-relaxed">
-                Enter the text or link you want to generate a QR code for.<br>
+                Enter the text or link you want to generate a QR code for free, no ads, and completely <a href="https://github.com/sanityguy/qrgen" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">open source</a>.<br>
                 <span class="text-slate-500 text-xs">Example: https://www.google.com</span>
             </p>
 
@@ -53,7 +53,24 @@
                 class="w-full mt-4 p-3 text-sm text-slate-100 font-medium bg-slate-950/80 border border-slate-800 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all duration-200"
             >
 
-            <button
+            <div class="flex flex-row items-center justify-center mt-5 gap-2 w-full bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-2xl p-2 shadow-2xl">
+
+                <input 
+                type="text"
+                id="sizewidth"
+                placeholder="Width (default: 400)"
+                class="w-1/2 p-3 text-sm text-slate-100 font-medium bg-slate-950/80 border border-slate-800 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all duration-200"
+            >
+
+                <input 
+                    type="text"
+                    id="sizeheight"
+                    placeholder="Height (default: 400)"
+                    class="w-1/2 p-3 text-sm text-slate-100 font-medium bg-slate-950/80 border border-slate-800 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all duration-200"
+                >
+            </div>
+                
+                <button
                 id="generate"
                 type="button"
                 class="w-full min-h-[44px] mt-3 p-3 text-white font-medium bg-blue-500 hover:bg-blue-600 rounded-xl shadow-lg shadow-blue-600/20 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2"
@@ -90,10 +107,6 @@
 
     <footer class="flex flex-col items-center justify-center w-full max-w-md py-6 z-10">
         <p class="text-center text-sm text-blue-400 font-medium leading-relaxed">
-            <a href="https://github.com/SanityGuy/qrgen" target="_blank" rel="noopener noreferrer" class="hover:underline active:scale-95 inline-flex items-center gap-1">
-                View on GitHub
-                <i class="fa-brands fa-github"></i>
-            </a>
             <br>
             <a href="https://saweria.co/souyandev" target="_blank" rel="noopener noreferrer" class="hover:underline inline-flex items-center gap-1 mt-1 text-slate-400 hover:text-amber-400 transition-colors active:scale-95 ">
                 Support Me
@@ -102,6 +115,6 @@
         </p>
     </footer>
 
-    <script src="index.js" defer></script>
+    <script src="./src/index.js" defer></script>
 </body>
 </html>
