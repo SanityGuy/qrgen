@@ -5,6 +5,26 @@ const copyUrl = document.getElementById("copyUrl");
 const downloadQr = document.getElementById("downloadQr");
 const qrCode = document.getElementById("qrCode");
 const textValue = document.getElementById("textValue");
+const sizeValue = document.getElementById("sizeValue");
+const sizewidth = document.getElementById("sizewidth");
+const sizeheight = document.getElementById("sizeheight");
+
+const syncQrSize = (source) => {
+    if (!sizewidth || !sizeheight) return;
+
+    const numericValue = source.value.replace(/\D/g, "");
+    source.value = numericValue;
+
+    if (numericValue) {
+        sizewidth.value = numericValue;
+        sizeheight.value = numericValue;
+    }
+};
+
+if (sizewidth && sizeheight) {
+    sizewidth.addEventListener("input", () => syncQrSize(sizewidth));
+    sizeheight.addEventListener("input", () => syncQrSize(sizeheight));
+}
 
 input.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
@@ -15,10 +35,18 @@ input.addEventListener("keydown", function(event) {
 if (generate) {
     generate.addEventListener("click", () => {
         const value = input.value.trim();
+        const size = (sizewidth?.value || sizeheight?.value || "")
+            .replace(/\D/g, "") || "400";
+        const width = size;
+        const height = size;
         if (!value) return;
 
-        qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${encodeURIComponent(value)}`;
+        if (sizewidth) sizewidth.value = size;
+        if (sizeheight) sizeheight.value = size;
+
+        qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=${width}x${height}&data=${encodeURIComponent(value)}`;
         textValue.innerHTML = value;
+        sizeValue.innerHTML = `${width}px x ${height}px`;
         qrsection.classList.remove("hidden");
         qrsection.classList.remove("animate-fade-in");
         void qrsection.offsetWidth;

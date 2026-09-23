@@ -53,7 +53,14 @@
                 class="w-full mt-4 p-3 text-sm text-slate-100 font-medium bg-slate-950/80 border border-slate-800 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all duration-200"
             >
 
-            <div class="flex flex-row items-center justify-center mt-5 gap-2 w-full bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-2xl p-2 shadow-2xl">
+            <div class="flex flex-col items-center justify-center mt-5 gap-2 w-full bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-2xl p-2 shadow-2xl">
+
+                <p class="mt-1 mb-1 text-center text-xs text-slate-400">
+                    You can also set the size of the QR code (optional)<br>
+                    <span class="text-slate-300">Sizes must be 1:1 ratio</span>
+                </p>
+
+                <div class="flex flex-row items-center justify-center gap-2 w-full">
 
                 <input 
                 type="text"
@@ -68,6 +75,8 @@
                     placeholder="Height (default: 400)"
                     class="w-1/2 p-3 text-sm text-slate-100 font-medium bg-slate-950/80 border border-slate-800 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all duration-200"
                 >
+
+                </div>
             </div>
                 
                 <button
@@ -88,7 +97,12 @@
                 <div class="p-6">
                     <h2 id="qrTitle" class="text-xl font-bold text-white">Your QR Code</h2>
                     <p id="qrDescription" class="mt-2 break-words text-sm leading-6 text-slate-400">
-                        Encoded content: <span id="textValue" class="font-semibold text-blue-400 break-all"></span>
+                        QR Content: <span id="textValue" class="font-semibold text-blue-400 break-all"></span>
+                        <br>
+                        Size: <span id="sizeValue" class="font-semibold text-blue-400"></span>
+                        <br>
+                        <hr class="mt-2 mb-2 border-slate-700">
+                        <span class="text-slate-500">The size of the QR code is not synced to the image above. But you can download the image and the size will be the same as the ones you inputted.</span>
                     </p>
                     <div class="mt-5 grid grid-cols-2 gap-3">
                         <button id="copyUrl" type="button" class="min-h-[44px] rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 p-3 font-medium text-slate-200 shadow-sm transition active:scale-95 flex items-center justify-center gap-2">
