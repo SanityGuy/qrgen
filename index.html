@@ -6,42 +6,89 @@
     <meta name="description" content="A website that generates QR Codes.">
     <meta name="keywords" content="QR Code Generator, QR Code, Generator, JavaScript, HTML, CSS">
     <meta name="author" content="Souyan">
-    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
-    <link rel="manifest" href="/public/site.webmanifest">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <meta name="theme-color" content="#0f172a">
+
     <title>Make A QR Code</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
     <style>
-        button, input { touch-action: manipulation; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+        button,
+        input {
+            touch-action: manipulation;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
         .animate-fade-in {
             animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
     </style>
 </head>
+
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-between antialiased selection:bg-blue-500 selection:text-white relative overflow-x-hidden">
 
     <main class="w-full max-w-md px-4 py-8 my-auto flex flex-col items-center relative z-10">
+
         <header class="text-center w-full">
             <div class="inline-flex items-center justify-center p-3 mb-3 bg-blue-500/10 border border-blue-500/20 rounded-2xl">
-                <i class="fa-solid fa-qrcode text-3xl text-blue-400"></i>
+                <i class="fa-solid fa-qrcode text-4xl text-blue-400"></i>
             </div>
-            <h1 class="text-2xl sm:text-3xl font-bold text-center text-white">Make A QR Code</h1>
+
+            <h1 class="text-2xl sm:text-3xl font-bold text-center text-white">
+                Make A QR Code
+            </h1>
+
             <p class="mt-1 break-words text-sm leading-6 text-slate-400 font-medium">
-                Made by <a href="https://github.com/sanityguy" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:underline">SouyanDev</a>
+                Made by
+                <a
+                    href="https://github.com/sanityguy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-blue-400 hover:underline"
+                >
+                    SouyanDev
+                </a>
             </p>
         </header>
 
         <div class="flex flex-col items-center justify-center mt-6 w-full bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-2xl p-5 shadow-2xl">
+
             <p class="text-slate-300 text-center text-sm leading-relaxed">
-                Enter the text or link you want to generate a QR code for.<br>
-                <span class="text-slate-500 text-xs">Example: https://www.google.com</span>
+                Enter the text or link you want to generate a QR code for free, no ads, and completely
+                <a
+                    href="https://github.com/sanityguy/qrgen"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-blue-400 hover:underline"
+                >
+                    open source
+                </a>.
+                <br>
+
+                <span class="text-slate-500 text-xs">
+                    Example: https://www.google.com
+                </span>
             </p>
 
             <input
@@ -53,6 +100,41 @@
                 class="w-full mt-4 p-3 text-sm text-slate-100 font-medium bg-slate-950/80 border border-slate-800 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all duration-200"
             >
 
+            <div class="flex flex-col items-center justify-center mt-5 gap-2 w-full bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-2xl p-2 shadow-2xl">
+
+                <p class="mt-1 mb-1 text-center text-xs text-slate-400">
+                    You can also set the size of the QR code (optional)
+                    <br>
+                    <span class="text-slate-300">
+                        Sizes must be 1:1 ratio
+                    </span>
+                </p>
+
+                <div class="flex flex-row items-center justify-center gap-2 w-full">
+
+                    <input
+                        type="number"
+                        id="sizewidth"
+                        min="100"
+                        max="2000"
+                        inputmode="numeric"
+                        placeholder="Width (default: 400)"
+                        class="w-1/2 p-3 text-sm text-slate-100 font-medium bg-slate-950/80 border border-slate-800 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all duration-200"
+                    >
+
+                    <input
+                        type="number"
+                        id="sizeheight"
+                        min="100"
+                        max="2000"
+                        inputmode="numeric"
+                        placeholder="Height (default: 400)"
+                        class="w-1/2 p-3 text-sm text-slate-100 font-medium bg-slate-950/80 border border-slate-800 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all duration-200"
+                    >
+
+                </div>
+            </div>
+
             <button
                 id="generate"
                 type="button"
@@ -61,47 +143,93 @@
                 <i class="fa-solid fa-qrcode"></i>
                 Generate
             </button>
+
         </div>
 
-        <section id="qrsection" class="hidden w-full mt-6" aria-live="polite">
+        <section
+            id="qrsection"
+            class="hidden w-full mt-6"
+            aria-live="polite"
+        >
             <div class="overflow-hidden rounded-2xl bg-slate-900/80 backdrop-blur-xl border border-slate-800 shadow-2xl">
-                <div class="flex items-center justify-center bg-slate-950/50 p-6 border-b border-slate-800/80">
-                    <img id="qrCode" class="w-full max-w-[220px] rounded-xl shadow-md bg-white p-2" alt="Generated QR code">
+
+                <div class="flex items-center justify-center bg-slate-950/50 p-6 border-b border-slate-800/80 overflow-hidden">
+                    <img
+                        id="qrCode"
+                        class="rounded-xl shadow-md bg-white p-2 max-w-full h-auto"
+                        alt="Generated QR code"
+                    >
                 </div>
+
                 <div class="p-6">
-                    <h2 id="qrTitle" class="text-xl font-bold text-white">Your QR Code</h2>
-                    <p id="qrDescription" class="mt-2 break-words text-sm leading-6 text-slate-400">
-                        Encoded content: <span id="textValue" class="font-semibold text-blue-400 break-all"></span>
+
+                    <h2
+                        id="qrTitle"
+                        class="text-xl font-bold text-white"
+                    >
+                        Your QR Code
+                    </h2>
+
+                    <p
+                        id="qrDescription"
+                        class="mt-2 break-words text-sm leading-6 text-slate-400"
+                    >
+                        QR Content:
+                        <span
+                            id="textValue"
+                            class="font-semibold text-blue-400 break-all"
+                        ></span>
+
+                        <br>
+
+                        Size:
+                        <span
+                            id="sizeValue"
+                            class="font-semibold text-blue-400"
+                        ></span>
                     </p>
+
                     <div class="mt-5 grid grid-cols-2 gap-3">
-                        <button id="copyUrl" type="button" class="min-h-[44px] rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 p-3 font-medium text-slate-200 shadow-sm transition active:scale-95 flex items-center justify-center gap-2">
+
+                        <button
+                            id="copyText"
+                            type="button"
+                            class="min-h-[44px] rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 p-3 font-medium text-slate-200 shadow-sm transition active:scale-95 flex items-center justify-center gap-2"
+                        >
                             <i class="fa-solid fa-copy"></i>
                             Copy Text
                         </button>
-                        <button id="downloadQr" type="button" class="min-h-[44px] rounded-xl bg-blue-600 hover:bg-blue-500 p-3 font-medium text-white shadow-sm transition active:scale-95 flex items-center justify-center gap-2">
+
+                        <button
+                            id="downloadQr"
+                            type="button"
+                            class="min-h-[44px] rounded-xl bg-blue-600 hover:bg-blue-500 p-3 font-medium text-white shadow-sm transition active:scale-95 flex items-center justify-center gap-2"
+                        >
                             <i class="fa-solid fa-download"></i>
                             Download
                         </button>
+
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="flex flex-col items-center justify-center w-full max-w-md py-6 z-10">
         <p class="text-center text-sm text-blue-400 font-medium leading-relaxed">
-            <a href="https://github.com/SanityGuy/qrgen" target="_blank" rel="noopener noreferrer" class="hover:underline active:scale-95 inline-flex items-center gap-1">
-                View on GitHub
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <br>
-            <a href="https://saweria.co/souyandev" target="_blank" rel="noopener noreferrer" class="hover:underline inline-flex items-center gap-1 mt-1 text-slate-400 hover:text-amber-400 transition-colors active:scale-95 ">
+            <a
+                href="https://saweria.co/souyandev"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:underline inline-flex items-center gap-1 mt-1 text-slate-400 hover:text-amber-400 transition-colors active:scale-95"
+            >
                 Support Me
                 <i class="fa-solid fa-thumbs-up text-xs"></i>
             </a>
         </p>
     </footer>
 
-    <script src="index.js" defer></script>
+    <script src="./src/index.js" defer></script>
 </body>
 </html>
